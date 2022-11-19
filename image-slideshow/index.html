@@ -28,6 +28,29 @@
         <img src="images/image-4.webp" />
         <img src="images/image-5.webp" />
     </div>
+    
+    <script>
+        let Images = document.querySelectorAll(".slideshow img");
+        console.log(Images);
+        let counter = 1;
+        let zindex = 1;
+        
+        function removecycle(hh){
+            hh.style.zIndex = 0;
+            
+        }
+        
+        setInterval(function(){
+            removecycle(Images[counter - 1]);
+            if(counter === Images.length){
+                counter = 0;
+            }
+            Images[counter].style.zIndex = zindex;
+            console.log(counter);
+            counter++;
+        }, 500);
+        
+    </script>
  
 </body>
 </html>
