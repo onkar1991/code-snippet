@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        .slideshow{
+        *,*:before,*:after{
+            padding: 0;
+            margin: 0;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .slideshow {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
@@ -12,14 +20,17 @@
             right: 0;
             height: 90vh;
         }
-        .slideshow img{
+
+        .slideshow img {
             position: absolute;
             left: 0;
             right: 0;
             margin: 0 auto;
         }
+
     </style>
 </head>
+
 <body>
     <div class="slideshow">
         <img src="images/image-1.webp" />
@@ -28,29 +39,30 @@
         <img src="images/image-4.webp" />
         <img src="images/image-5.webp" />
     </div>
-    
+
     <script>
         let Images = document.querySelectorAll(".slideshow img");
-        console.log(Images);
         let counter = 1;
         let zindex = 1;
-        
-        function removecycle(hh){
+
+        function removecycle(hh) {
             hh.style.zIndex = 0;
-            
         }
-        
-        setInterval(function(){
+
+        // call function every 500ms 
+
+        setInterval(function() {
             removecycle(Images[counter - 1]);
-            if(counter === Images.length){
+            if (counter === Images.length) {
                 counter = 0;
             }
             Images[counter].style.zIndex = zindex;
             console.log(counter);
             counter++;
         }, 500);
-        
+
     </script>
- 
+
 </body>
+
 </html>
